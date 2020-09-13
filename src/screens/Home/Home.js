@@ -1,12 +1,20 @@
+import "./styles.css";
+
+import {Button, Panel, PanelHeader, Text} from '@vkontakte/vkui';
+
 import React from 'react';
+import {connect} from "redux-zero/react";
 
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
+const mapToProps = ({counterState, go}) => ({counterState});
 
-const Home = ({ id, go, fetchedUser }) => (
-	<Panel id={id}>
-		<PanelHeader>TechBirds</PanelHeader>
-	</Panel>
+const Home = ({id, go}) => (
+    <Panel id={id}>
+        <PanelHeader>Пожертвования</PanelHeader>
+        <div className="placeholder">
+            <Text>У Вас пока нет сборов. Начните доброе дело.</Text>
+            <Button data-to={'donation-type'} onClick={(e) => go(e)} className="create-btn">Создать сбор</Button>
+        </div>
+    </Panel>
 );
 
-export default Home;
+export default connect(mapToProps, {})(Home);
