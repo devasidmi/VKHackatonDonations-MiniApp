@@ -1,5 +1,5 @@
 import {Cell} from '@vkontakte/vkui';
-import {DonationType} from '../../../state/donation_details/state';
+import {DonationType} from '../../../store/state/donation_details/state';
 import Icon28CalendarOutline from '@vkontakte/icons/dist/28/calendar_outline';
 import Icon28TargetOutline from '@vkontakte/icons/dist/28/target_outline';
 import React from 'react';

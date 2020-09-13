@@ -3,10 +3,10 @@ import './styles.css';
 import {Button, FormLayout, Input, Panel, PanelHeader, Select, Textarea} from '@vkontakte/vkui';
 import React, {useState} from 'react';
 
-import {DonationType} from '../../state/donation_details/state';
+import {DonationType} from '../../store/state/donation_details/state';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import {PanelHeaderButton} from '@vkontakte/vkui';
-import PhotoCover from './components/PhotoCover';
+import PhotoCover from './Components/PhotoCover';
 import bridge from '@vkontakte/vk-bridge';
 import { combineActions } from "redux-zero/utils";
 import {connect} from "redux-zero/react";

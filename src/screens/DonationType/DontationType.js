@@ -2,8 +2,8 @@ import './styles.css';
 
 import {Div, Panel, PanelHeader} from '@vkontakte/vkui';
 
-import {DonationType} from '../../state/donation_details/state';
-import DontationItem from './components/DonationItem';
+import {DonationType} from '../../store/state/donation_details/state';
+import DontationItem from './Components/DonationItem';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import {PanelHeaderButton} from '@vkontakte/vkui';
 import React from 'react';

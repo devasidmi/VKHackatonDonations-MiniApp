@@ -4,6 +4,11 @@
     justify-content: center;
 }
 .cover {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
     width: 351px;
     height: 140px;
     left: 12px;
@@ -11,4 +16,12 @@
 
     border: 1px dashed #3F8AE0;
     border-radius: 10px;
+}
+
+.upload-photo-title {
+    color: #3F8AE0
+}
+
+.Cell--ios .Cell__before-in>.Icon {
+    padding: 11px;
 }
