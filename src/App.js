@@ -7,10 +7,10 @@ import DontationDetails from './screens/DonationDetails/DonationDetails';
 import DontationType from './screens/DonationType/DontationType';
 import Home from './screens/Home/Home';
 import Icon56CheckCircleOutline from '@vkontakte/icons/dist/56/check_circle_outline';
-import actions from './actions/global';
 import bridge from '@vkontakte/vk-bridge';
 import {connect} from "redux-zero/react";
-import store from './store';
+import globalActions from './store/actions/global/actions';
+import store from './store/store';
 
 const mapToProps = ({globalState}) => ({activePanel: globalState.activePanel, activeModal: globalState.activeModal,history: globalState.history});
 
@@ -99,4 +99,4 @@ const App = ({activePanel, activeModal, history, setActivePanel, setHistory, set
     );
 }
 
-export default connect(mapToProps, actions)(App);
+export default connect(mapToProps, globalActions)(App);

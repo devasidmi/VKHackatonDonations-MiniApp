@@ -6,7 +6,7 @@ import {Provider} from "redux-zero/react";
 import React from "react";
 import ReactDOM from "react-dom";
 import bridge from "@vkontakte/vk-bridge";
-import store from "./store";
+import store from "./store/store";
 
 // Init VK  Mini App
 bridge.send("VKWebAppInit");

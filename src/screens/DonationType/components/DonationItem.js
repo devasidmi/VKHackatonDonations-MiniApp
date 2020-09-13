@@ -3,7 +3,7 @@ import {DonationType} from '../../../state/donation_details/state';
 import Icon28CalendarOutline from '@vkontakte/icons/dist/28/calendar_outline';
 import Icon28TargetOutline from '@vkontakte/icons/dist/28/target_outline';
 import React from 'react';
-import actions from '../../../actions/donation_details';
+import actions from '../../../store/actions/donation_details/actions';
 import {connect} from 'redux-zero/react';
 
 const DontationItem = ({go, detailsId, setDetailsId}) => (

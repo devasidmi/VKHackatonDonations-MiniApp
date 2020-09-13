@@ -7,12 +7,12 @@ import {DonationType} from '../../state/donation_details/state';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import {PanelHeaderButton} from '@vkontakte/vkui';
 import PhotoCover from './components/PhotoCover';
-import actions from '../../actions/donation_details';
 import bridge from '@vkontakte/vk-bridge';
 import { combineActions } from "redux-zero/utils";
 import {connect} from "redux-zero/react";
 import currencyFormatter from 'currency-formatter';
-import globalActions from '../../actions/global';
+import donationDetailsActions from '../../store/actions/donation_details/actions';
+import globalActions from '../../store/actions/global/actions';
 
 const mapToProps = ({donationDetailsState}) => ({donationDetailsState});
 
@@ -97,4 +97,4 @@ const DontationDetails = ({id, go, donationDetailsState, setDetails, setActiveMo
 );
 }
 
-export default connect(mapToProps, combineActions(actions, globalActions))(DontationDetails);
+export default connect(mapToProps, combineActions(donationDetailsActions, globalActions))(DontationDetails);
