@@ -12,6 +12,13 @@ const actions = store => ({
             ...state.globalState,
             history
         }
+    }),
+    setActiveModal: (state, activeModal) => ({
+        ...state,
+        globalState: {
+            ...state.globalState,
+            activeModal
+        }
     })
 });
 

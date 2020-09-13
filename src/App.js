@@ -1,17 +1,20 @@
 import '@vkontakte/vkui/dist/vkui.css';
 
-import {ConfigProvider, View} from '@vkontakte/vkui';
+import {ConfigProvider, ModalCard, ModalRoot, View} from '@vkontakte/vkui';
 import React, {useEffect} from 'react';
 
+import DontationDetails from './screens/DonationDetails/DonationDetails';
 import DontationType from './screens/DonationType/DontationType';
 import Home from './screens/Home/Home';
-import actions from './state/global/actions';
+import Icon56CheckCircleOutline from '@vkontakte/icons/dist/56/check_circle_outline';
+import actions from './actions/global';
 import bridge from '@vkontakte/vk-bridge';
 import {connect} from "redux-zero/react";
+import store from './store';
 
-const mapToProps = ({globalState}) => ({activePanel: globalState.activePanel, history: globalState.history});
+const mapToProps = ({globalState}) => ({activePanel: globalState.activePanel, activeModal: globalState.activeModal,history: globalState.history});
 
-const App = ({activePanel, history, setActivePanel, setHistory}) => {
+const App = ({activePanel, activeModal, history, setActivePanel, setHistory, setActiveModal}) => {
     useEffect(() => {
         bridge.subscribe(({
             detail: {
@@ -62,12 +65,35 @@ const App = ({activePanel, history, setActivePanel, setHistory}) => {
         setHistory(clonnedHistory);
     }
 
-    console.log('build!');
+    const onModalClose = () => setActiveModal(null);
+
+    const modal = (
+        <ModalRoot activeModal={activeModal}>
+          <ModalCard 
+          icon={<Icon56CheckCircleOutline/>}
+          id="finish" 
+          onClose={onModalClose} 
+          header={'Tech-Birds'} 
+          caption={'Вы прошли весь макет, надеемся, что Вам понравилось. Пройти еще раз?'}
+          actions={[{
+            title: 'Пройти еще раз',
+            mode: 'primary',
+            action: () => {
+                store.reset();
+            }
+          }]}
+          >
+              
+          </ModalCard>
+        </ModalRoot>
+      );
+
     return (
         <ConfigProvider isWebView={true}>
-            <View activePanel={activePanel} onSwipeBack={goBack} history={history}>
+            <View activePanel={activePanel} onSwipeBack={goBack} history={history} modal={modal}>
                 <Home id='home' go={go}/>
                 <DontationType id='donation-type' go={go}/>
+                <DontationDetails id='donation-details' go={go}/>
             </View>
         </ConfigProvider>
     );

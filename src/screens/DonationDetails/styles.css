@@ -1,0 +1,14 @@
+.cover-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cover {
+    width: 351px;
+    height: 140px;
+    left: 12px;
+    top: 0px;
+
+    border: 1px dashed #3F8AE0;
+    border-radius: 10px;
+}

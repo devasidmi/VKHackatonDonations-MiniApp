@@ -1,4 +1,5 @@
-import GlobalState from "./state/global/global_state";
+import DonationDetailsState from "./state/donation_details/state";
+import GlobalState from "./state/global/state";
 import {applyMiddleware} from "redux-zero/middleware";
 import createStore from "redux-zero";
 
@@ -10,6 +11,7 @@ const logger = store => (next, args) => action => {
 
 const initialState = {
     globalState: GlobalState.initialState,
+    donationDetailsState: DonationDetailsState.initialState,
 };
 const middlewares = applyMiddleware(logger);
 

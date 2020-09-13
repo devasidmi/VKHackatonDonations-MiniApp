@@ -1,6 +1,7 @@
 const GlobalState = {
     initialState: {
         activePanel: 'home',
+        activeModal: null,
         history: ['home']
     }
 }
