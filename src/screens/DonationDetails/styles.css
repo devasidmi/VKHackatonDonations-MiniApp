@@ -22,7 +22,8 @@
 }
 
 .Cell--ios .Cell__before-in>.Icon {
-    padding: 8px;
+    padding-top: 12px;
+    padding-right: 12px;
 }
 
 .uploaded-image {

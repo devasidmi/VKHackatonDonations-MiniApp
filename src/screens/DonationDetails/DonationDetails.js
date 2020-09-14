@@ -25,7 +25,7 @@ import store from '../../store/store';
 
 const mapToProps = ({donationDetailsState}) => ({donationDetailsState});
 
-const DontationDetails = ({id, go, donationDetailsState, setDetails, setActiveModal}) => {
+const DonationDetails = ({id, go, donationDetailsState, setDetails, setActiveModal, setImageUploaded}) => {
 
     const {
         detailsId,
@@ -33,13 +33,12 @@ const DontationDetails = ({id, go, donationDetailsState, setDetails, setActiveMo
         sum,
         goal,
         description,
-        selectedAuthor
+        selectedAuthor,
+        imageUploaded,
     } = donationDetailsState;
 
     const [showErrors,
         setShowErrors] = useState(false);
-    const [uploaded,
-        setUploaded] = useState(false);
 
     const onFormUpdate = (e, field) => {
         const {value} = e.target
@@ -81,9 +80,9 @@ const DontationDetails = ({id, go, donationDetailsState, setDetails, setActiveMo
             } > <Icon24Back/></PanelHeaderButton>}>{detailsId.title}</PanelHeader>
             <div>
                 <PhotoCover
-                    onTap={() => setUploaded(true)}
-                    uploaded={uploaded}
-                    onCrossTap={() => setUploaded(false)}/>
+                    onTap={() => setImageUploaded(true)}
+                    uploaded={imageUploaded}
+                    onCrossTap={() => setImageUploaded(false)}/>
                 <FormLayout>
                     <Input
                         top="Сумма, ₽"
@@ -144,13 +143,18 @@ const DontationDetails = ({id, go, donationDetailsState, setDetails, setActiveMo
                     </Select>
 }
                     <Button
-                        onClick={() => {
+                        data-to={'donation-details-more'}
+                        onClick={(e) => {
                         setShowErrors(true);
                         if (!formIsValid()) {
                             bridge.send('VKWebAppTapticNotificationOccurred', {type: 'error'});
                             return;
                         }
-                        setActiveModal('finish');
+                        if (detailsId === DonationType.goal) { 
+                            go(e);
+                        } else {
+                            setActiveModal('finish');
+                        }
                     }}
                         size="xl">{detailsId === DonationType.goal
                             ? 'Далее'
@@ -161,4 +165,4 @@ const DontationDetails = ({id, go, donationDetailsState, setDetails, setActiveMo
     );
 }
 
-export default connect(mapToProps, combineActions(donationDetailsActions, globalActions))(DontationDetails);
+export default connect(mapToProps, combineActions(donationDetailsActions, globalActions))(DonationDetails);

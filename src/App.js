@@ -3,7 +3,8 @@ import '@vkontakte/vkui/dist/vkui.css';
 import {ConfigProvider, ModalCard, ModalRoot, View} from '@vkontakte/vkui';
 import React, {useEffect} from 'react';
 
-import DontationDetails from './screens/DonationDetails/DonationDetails';
+import DonationDetails from './screens/DonationDetails/DonationDetails';
+import DonationDetailsMore from './screens/DonationDetailsMore/DonationDetailsMore';
 import DontationType from './screens/DonationType/DontationType';
 import Home from './screens/Home/Home';
 import Icon56CheckCircleOutline from '@vkontakte/icons/dist/56/check_circle_outline';
@@ -93,7 +94,8 @@ const App = ({activePanel, activeModal, history, setActivePanel, setHistory, set
             <View activePanel={activePanel} onSwipeBack={goBack} history={history} modal={modal}>
                 <Home id='home' go={go}/>
                 <DontationType id='donation-type' go={go}/>
-                <DontationDetails id='donation-details' go={go}/>
+                <DonationDetails id='donation-details' go={go}/>
+                <DonationDetailsMore id='donation-details-more' go={go}/>
             </View>
         </ConfigProvider>
     );

@@ -6,6 +6,13 @@ const actions = store => ({
             detailsId
         }
     }),
+    setImageUploaded: (state, imageUploaded) => ({
+        ...state,
+        donationDetailsState: {
+            ...state.donationDetailsState,
+            imageUploaded
+        }
+    }),
     setDetails: (state, payload) => ({
         ...state,
         donationDetailsState: payload

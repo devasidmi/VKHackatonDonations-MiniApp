@@ -13,14 +13,17 @@ export const DonationType = {
 
 const DonationDetailsState = {
     initialState: {
+        imageUploaded: false,
         detailsId: DonationType.goal,
-        name: '',
         sum: 0,
         goal: '',
         description: '',
         payment: 'Счёт VK Pay · 1234',
         selectedAuthor: 0,
-        authors: ["Василий Дмитриев", "Артем Белков", "Муса Фамилия", "Игорь Силаев"]
+        authors: ["Василий Дмитриев", "Артем Белков", "Муса Фамилия", "Игорь Силаев"],
+        deadlines: ["20 сентября"],
+        endOptions: ["Когда соберём сумму", "В определенную дату"],
+        selectedEndOption: null,
     }
 }
 Object.freeze(DonationDetailsState);
