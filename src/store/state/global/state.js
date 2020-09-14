@@ -2,7 +2,7 @@ const GlobalState = {
     initialState: {
         activePanel: 'home',
         activeModal: null,
-        history: []
+        history: ['home']
     }
 }
 Object.freeze(GlobalState);
