@@ -2,6 +2,10 @@
 
 # VKHackatonDonations-MiniApp [![npm][npm]][npm-url] [![deps][deps]][deps-url]
 
+## How to play with app
+
+<img src='https://i.ibb.co/PjcQW1v/IMG-3018.jpg' width='250'/>
+
 ## How to start work with app
 
 Go to created folder and run:
